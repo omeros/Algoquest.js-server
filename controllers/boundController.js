@@ -22,7 +22,7 @@ class BoundController{
     const list =   this.Algoquest.findMax(mainBound.left, mainBound.right, mainBound.up, mainBound.down, bounds)  
     let myNode = list.getHead();  // myNode is  BoundNode
     while ((myNode !=undefined)&&(myNode.getNext() != null) ) {
-      console.log('boundNode in list answer : ', myNode.myToString() )    
+     // console.log('boundNode in list answer : ', myNode.myToString() )    
       myNode = myNode.getNext();
     }
   

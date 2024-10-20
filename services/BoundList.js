@@ -120,9 +120,9 @@ class BoundList {
         let tempBoundNode = newBoundNodeHead
         if(tempBoundNode){
             while ((myNode != null)&&(tempBoundNode != null) ){
-                console.log('tempBoundNode1====>:',tempBoundNode);
+              //  console.log('tempBoundNode1====>:',tempBoundNode);
                 tempBoundNode = tempBoundNode.copyBoundNode()
-                console.log('tempBoundNode2====>:',tempBoundNode);
+                //console.log('tempBoundNode2====>:',tempBoundNode);
                 newBoundNode.setNext(tempBoundNode)
                 tempBoundNode = tempBoundNode.getNext()
                 myNode = myNode.getNext();

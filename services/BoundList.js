@@ -36,7 +36,7 @@ class BoundList {
     refresh(){
         let p1 = this.getHead();  // p1 is BoundNode
         let p2 = this.getHead();  //p2 is BoundNode
-        p2.getNext();
+        p2 = p2.getNext();
         while ((p1 != null)) {
 
         // addToList(p1);

@@ -1,4 +1,4 @@
-const {Bound} = require('./Bound')
+import { Bound } from './Bound';
 
 
 class BoundNode {
@@ -6,74 +6,72 @@ class BoundNode {
      * Constructor for objects of class BoundNode
      */
      // constructor(Bound , BoundNode)
-    myBound = null;
-    next ;
-    size;
-    added=0;   // marking if the node was added to other node in some function
+    myBound: Bound;
+    next: BoundNode | null = null;
+    size: number;
+    added: number = 0;  // marking if the node was added to other node in some function
     // constructor( bb, otherNext){
     //     this.bb=bb;
     //     this.next=otherNext;
     //     this.size=this.bb.getSize();
     // }
      //constructor( Bound)
-    constructor(bound){
+    constructor(bound: Bound){
         // let o = other.getBound();  //Bound
         // this.myBound = new Bound(o.getLeft(),o.getRight(),o.getTop(),o.getBottom());      
         this.myBound = bound;
-        this.next = null;
         this.size = bound.getSize();
-        this.added = 0;
     }
 
     
      //return double
-    getSize(){
+    getSize(): number {
         return this.size;
     }
     //return BoundNode
-    getNext(){
+    getNext(): BoundNode | null {
         return this.next;
     }
     // void             //BoundNode
-    setNext(boundNode){
+    setNext(boundNode: BoundNode | null): void {
         this.next = boundNode;
     } 
        // void           int
-    addSize(add){
+    addSize(add: number): void {
         this.size += add;
     }
     //Bound
-    getBound(){
+    getBound(): Bound {
         return this.myBound;
     }
 
     //void (int)
-    setAd (x){
+    setAd(x: number): void {
         this.added=x;
     }
     //return int
-    getAd(){
+    getAd(): number {
         return this.added;
     }
-    copyBoundNode(){
+    copyBoundNode(): BoundNode {
         let newBound =  this.myBound.copyBound() //new Bound(this.myBound.getLeft(),this.myBound.getRight(), this.myBound.getTop(), this.myBound.getBottom())
         return new BoundNode(newBound);
     }
     /******** combine "other" BoundNode to "this" BoundNod  , return int (BoundNode) **********************/
-    addNode(otherBoundNode){
+    /* @param otherBoundNode - The other BoundNode to combine with
+    */
+    addNode(otherBoundNode: BoundNode): void {
     /*****************************************************************************/
-   // if ( other instanceof BoundNode ) {
-        var otheBound = otherBoundNode.getBound();   // otheBound is Bound
-    //    if(other instanceof Bound ){
-        var otherLeft = otheBound.getLeft();
-        let otherRight = otheBound.getRight();
-        let otherTop = otheBound.getTop();
-        let otherBottom = otheBound.getBottom();
+        const otheBound = otherBoundNode.getBound();   // otheBound is Bound
+        const otherLeft = otheBound.getLeft();
+        const otherRight = otheBound.getRight();
+        const otherTop = otheBound.getTop();
+        const otherBottom = otheBound.getBottom();
         
-        let thisLeft = this.myBound.getLeft();
-        let thisRight = this.myBound.getRight();
-        let thisTop = this.myBound.getTop();
-        let thisBottom = this.myBound.getBottom(); 
+        const thisLeft = this.myBound.getLeft();
+        const thisRight = this.myBound.getRight();
+        const thisTop = this.myBound.getTop();
+        const thisBottom = this.myBound.getBottom(); 
                         
         // case 1.1   // other bound is in the bottom of this.myBound and his right values is bigger or equal to this.myBound's right and left values is smaller or equal to this.myBound's values.
         if( (otherLeft<=thisLeft)&&(thisRight<=otherRight)&&(otherBottom<thisBottom)&&(thisBottom<=otherTop)&&(otherTop<thisTop))  
@@ -124,7 +122,7 @@ class BoundNode {
     }
    // }
 
-    myToString(){
+    myToString(): void {
      //   console.log('in BoundNode :', this.myBound.myToString()   )
         console.log('in BoundNode -  this.myBound :', this.myBound)//.myToString()  )
     }  //
@@ -132,4 +130,4 @@ class BoundNode {
 }
 
 
-module.exports = { BoundNode }
+export { BoundNode };

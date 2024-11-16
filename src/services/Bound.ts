@@ -3,11 +3,11 @@
 
 class Bound {
     //  Constructor for objects of class Bound (double,double,double,double)
-    L;
-    R;
-    T;
-    B;
-    constructor(left, right, top, bottom){
+    L: number;
+    R: number;
+    T: number;
+    B: number;
+    constructor(left: number, right: number, top: number, bottom: number){
         this.L = left;
         this.R = right;
         this.T = top;
@@ -24,48 +24,48 @@ class Bound {
     // }
 
     // return double
-    getSize(){
+    getSize(): number {
         return (this.T - this.B)*(this.R - this.L);   
     }
     
     // return Double
-    getTop(){
+    getTop(): number {
         return this.T;
     }
     //return double
-    getBottom(){
+    getBottom(): number {
         return this.B;
     }
     
    // return double
-    getLeft(){ 
+    getLeft(): number {
         return this.L;
     }
     // return double
-    getRight(){ 
+    getRight(): number {
         return this.R;
     } 
     //  void (double)
-    setTop(t){
+    setTop(t: number): void {
         this.T=t;
     }
     //  void (double)
-    setBottom(b){
+    setBottom(b: number): void {
         this.B=b;
     }
     //  void (double)
-    setLeft(l){ 
+    setLeft(l: number): void {
         this.L=l;
     }
     //void(double)
-    setRight(r){ 
+    setRight(r: number): void {
         this.R=r;
     }
-    copyBound() {
+    copyBound():  Bound {
         return new Bound(this.L, this.R, this.T, this.B);
     }
     // return string
-    myToString(){
+    myToString(): void {
         let  L=this.L;
         let  R=this.R;
         let  T=this.T;
@@ -75,4 +75,4 @@ class Bound {
 }
 
 
-module.exports = {Bound}
+export { Bound };

@@ -18,7 +18,7 @@ class BoundList {
         return this.head;
     }
   /****** combine two lists to one list ****return BoundList(BoundList)****************/
-  combine(otherList: BoundList): BoundList | null {
+  combine(otherList: BoundList|null): BoundList | null {
         if ((otherList != null) ){      
                      //&&(other!=undefined)) {
             let otherNode: BoundNode | null = otherList.getHead();   // otherNode is BoundNode
@@ -29,7 +29,7 @@ class BoundList {
             //this.addToList(otherNode);
             return this;
         }
-        return null;
+        return otherList;
     }
 
   /****************** add each node to another in the same list  , return void ***********************/
